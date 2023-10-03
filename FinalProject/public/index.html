@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+    Author: Julian Navarro
+    CS 132 Spring 2023
+    Final project index html file
+    Hovik gave an extension, thanks!
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" />
+    <script src="helpers.js"></script>
+    <script defer src="store.js"></script>
+    <title>LA store</title>
+</head>
+<body>
+    <header>
+        <img id="cart" class="clicked-items" src="imgs/cart.png" alt="cart image"/>
+        <h1>LA clothing store</h1>
+        <nav>
+            <ul>
+                <li id="home" class="clicked-items"><a href="index.html">Home</a></li>
+                <li id="reviews" class="clicked-items">Reviews</li>
+                <li id="contact" class="clicked-items">Contact Us</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--Home page-->
+        <section id="home-page">
+
+            <h2 id="order-otw" class="hidden"></h2>
+            <!--Container of the cards of the products-->
+            <section id="home-info">
+                <div id="item-container">
+                    <p id="temp-mess" class="hidden"></p>
+                </div>
+    
+                <!--Filter side on the right-->
+                <aside>
+                    <h3>
+                        Gender:
+                    </h3>
+                    <label><input id="male-check" type="radio" name="type" value="male"> Male </label> <br>
+                    <label><input id="female-check" type="radio" name="type" value="female"> Female </label> <br>
+                    <h3>
+                        Item type:
+                    </h3>
+                    <label><input id="tops-check" type="radio" name="type" value="tops"> Tops </label> <br>
+                    <label><input id="accessories-check" type="radio" name="type" value="accessories"> Accessories </label> <br>
+                    <label><input id="bottoms-check" type="radio" name="type" value="bottoms">  Bottoms </label> <br>
+                    <label><input id="shoeware-check" type="radio" name="type" value="shoesware"> Shoeware </label>
+                    <button id="filter-btn">Filter!</button>
+                </aside>
+            </section>
+        
+        </section>
+
+        <!--Product page for each product-->
+        <div id="product-page" class="hidden">
+            <div id="product-container">
+                <!--Side image for the product page-->
+                <section id="image-side">
+                    <img id="product-img"/>
+                </section>
+                <!--Side of select product properties-->
+                <section id="product-values">
+                    <h2 id="item-name"> </h2>
+                    <p id="item-description"> </p>
+                    <p>Price: <span id="item-price"></span> USD</p>
+                    <p>Items Left: <span id="quantity-left"></span></p>
+                    <!--Quantity input box-->
+                    <form>
+                        <label>
+                            Quantity:
+                            <input id="quantity" name="quantity" type="number" min="0" max="100" />
+                        </label>
+                    </form>
+                    <!--Color select options-->
+                    <select name="color" id="color-drop">
+                        <option value="Color">Color</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                    </select>
+                    <!--Size select options-->
+                    <select name="size" id="size-drop">
+                        <option value="Size">Size</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="Extra L">Extra L</option>
+                    </select>
+                    <button id="cart-btn">Add to cart</button>
+                    <h2 id="notice"></h2>
+                    
+                </section>
+            </div>
+            <!--Review section in the bottom part of the product page-->
+            <section id="review-section">
+                <h2>Leave a Review: </h2>
+                <form>
+                    <label>
+                        Comments: <br>
+                        <textarea id="comment-input" name="comment" required></textarea>
+                    </label>
+                    <button id="review-submit-btn">Submit</button>
+                </form>
+            </section>
+        </div>
+
+        <!--Cart page showing the items in the cart-->
+        <div id="cart-page" class="hidden">
+            <!--Cards of the items in the cart-->
+            <section id="items-cart-section">
+            </section>
+            <!--Section to the right showing the total price of the order, total items and check
+                and check out button-->
+            <section id="total-section">
+                <h2>Total: </h2>
+                <p>Number of items: <span id="total-number-items"></span></p>
+                <p>Total Price: <span id="total-price"></span></p>
+                <button id="check-out-btn">Check Out Now</button>
+            </section>
+        </div>
+
+        <!--Contact page-->
+        <section id="contact-page" class="hidden">
+            <form id="contact-form">
+                <label>
+                    Name: <br>
+                    <input id="name-input" name="name" type="text" required />
+                </label>
+                <label>
+                    Email: <br>
+                    <input id="email-input" name="email" type="email" required />
+                </label>
+                <label>
+                    Date: <br>
+                    <input id="date-input" name="date" type="date" required />
+                </label>
+                <label>
+                    Concern: <br>
+                    <input id="concer-input" name="concern" type="text" required />
+                </label>
+                <button id="contact-submit-btn" type="submit">Submit!</button>
+            </form>
+        </section>
+
+        <!--Review page-->
+        <section id="reviews-page" class="hidden">
+        </section>
+
+    </main>
+
+    <footer>
+        <p>The photos and images are cited in page source. &copy; 2023</p>
+    </footer>
+    
+</body>
+</html>
